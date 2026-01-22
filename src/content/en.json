@@ -1,0 +1,207 @@
+{
+  "meta": {
+    "title": "Ozio Group | Join the Team",
+    "description": "Ozio Group - The European home services marketplace. Join a team that makes a difference."
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "culture": "Culture",
+    "careers": "Careers",
+    "contact": "Contact"
+  },
+  "hero": {
+    "headline": "Where Urgency Meets Expertise.",
+    "subheadline": "The European marketplace connecting B2B/B2C clients with qualified technicians — locksmiths, plumbers, electricians, glaziers, and more. Meaningful work with real impact.",
+    "cta": "View Positions"
+  },
+  "stats": {
+    "requests": { "value": 25000, "display": "25K+", "label": "monthly requests" },
+    "revenue": { "value": 15, "display": "€15M+", "label": "annual business volume" },
+    "artisans": { "value": 2000, "display": "2000+", "label": "partner technicians" },
+    "years": { "value": 9, "display": "9", "label": "years in business" }
+  },
+  "marketplace": {
+    "headline": "What We Do",
+    "description": "Ozio connects homeowners in urgent need with trusted tradespeople. When a family is locked out at -5°C, we find a locksmith in 25 minutes. When a leak threatens a home, we dispatch a qualified plumber.",
+    "highlight": "Technology that solves human problems.",
+    "cta": "Discover our culture"
+  },
+  "about": {
+    "headline": "About Ozio",
+    "intro": "Since 2016, we've been connecting homeowners in urgent need with trusted tradespeople across Europe. A technology marketplace built around human moments."
+  },
+  "culture": {
+    "headline": "Our Culture",
+    "intro": "Authentic conversations. Empowered decisions. Work that matters to the people we serve.",
+    "ctaText": "Discover our culture",
+    "values": {
+      "headline": "Our Values",
+      "items": [
+        {
+          "title": "Transparent",
+          "description": "Open communication at every level. Immediate feedback, collaborative problem-solving. When something needs addressing, we address it together."
+        },
+        {
+          "title": "Committed",
+          "description": "Excellence as a standard. Each interaction is an opportunity, each intervention a responsibility. The work matters, so we bring our best."
+        },
+        {
+          "title": "Equitable",
+          "description": "Fairness for everyone — customers, artisans, colleagues. Trust is built through consistent actions over time."
+        }
+      ]
+    },
+    "antiRobot": {
+      "headline": "Human-Centered Operations",
+      "description": "At Ozio, you bring judgment to every situation. A family locked out at midnight requires a different approach than a Sunday water leak. You're empowered to make decisions that have genuine impact.",
+      "points": [
+        "Diverse challenges — each day brings something new",
+        "Autonomy in your decision-making",
+        "Visible impact on people's lives"
+      ]
+    }
+  },
+  "soul": {
+    "headline": "Why It Matters",
+    "intro": "Behind every call, there's a human story. These are the moments that define what we do.",
+    "ctaText": "Read more stories",
+    "stories": [
+      {
+        "title": "Real Emergencies",
+        "subtitle": "When Every Second Counts",
+        "content": "A mother with three young children, locked out of their home at -5°C. It was 11 PM on a Tuesday. Our team found an available locksmith in 8 minutes. He arrived in 25 minutes. The children were asleep in their own beds 30 minutes later. The mother called back the next day to thank us for our services.",
+        "highlight": "Connecting people to solutions, when it matters most.",
+        "stat": "25 min",
+        "statLabel": "response time"
+      },
+      {
+        "title": "From Finance to Field",
+        "subtitle": "A Career Transformation",
+        "content": "Marc spent 12 years in the banking system. Searching for more meaningful work, he made a change. 3 years later, he leads a team of 3 locksmiths and generates €1M in annual revenue through our platform. We supported his journey — from business launch to first customers, through administrative complexities to structured growth.",
+        "highlight": "Building careers, one partnership at a time.",
+        "stat": "€1M",
+        "statLabel": "annual revenue"
+      },
+      {
+        "title": "The Sunday Flood",
+        "subtitle": "When Disaster Strikes",
+        "content": "4 AM on a Sunday. A burst pipe in a family home. Water rising fast. Within 12 minutes, we had a plumber en route. He arrived, contained the flood, and stayed until 7 AM to ensure the home was safe. What could have been catastrophic was limited to one room.",
+        "highlight": "Ready when it matters, around the clock.",
+        "stat": "12 min",
+        "statLabel": "dispatch time"
+      }
+    ]
+  },
+  "departments": {
+    "headline": "Our Teams",
+    "intro": "Every department contributes to one mission: connecting those who need help with those who can provide it.",
+    "lookingForLabel": "Looking for:",
+    "peopleLabel": "people",
+    "items": [
+      {
+        "name": "Tech",
+        "tagline": "Building the future of home services",
+        "description": "The platform that orchestrates everything. APIs, algorithmic matching, mobile apps. Modern stack (React, Node, PostgreSQL), meaningful challenges, and autonomy to ship features that matter.",
+        "teamSize": "3",
+        "lookingFor": "Full-stack developers",
+        "icon": "code"
+      },
+      {
+        "name": "Marketing",
+        "tagline": "Connecting homeowners with solutions",
+        "description": "Acquisition, SEO, brand, and performance marketing. Data-driven campaigns that connect homeowners in need with artisans who can help. €2M+ annual ad spend to optimize.",
+        "teamSize": "3",
+        "lookingFor": "Head of SEA, Growth marketers",
+        "icon": "megaphone"
+      },
+      {
+        "name": "Artisan Network",
+        "tagline": "Growing the network, one artisan at a time",
+        "description": "Building and nurturing our partner artisan network. Field relationships, negotiation, onboarding, and retention. The bridge between Ozio and 2,000+ skilled tradespeople.",
+        "teamSize": "2",
+        "icon": "handshake"
+      },
+      {
+        "name": "Operations",
+        "tagline": "The heartbeat of every intervention",
+        "description": "Coordinating 25,000+ monthly requests. Dispatch optimization, service quality, and process improvement. When a family needs help at midnight, Operations ensures it arrives.",
+        "teamSize": "4",
+        "lookingFor": "Head of Operations",
+        "icon": "cog"
+      },
+      {
+        "name": "Support",
+        "tagline": "The human voice of Ozio",
+        "description": "First responders for customers and artisans. Problem-solving under pressure, de-escalation, and turning stressful moments into positive experiences. Empathy as a core skill.",
+        "teamSize": "20",
+        "icon": "headset"
+      }
+    ]
+  },
+  "gallery": {
+    "headline": "Life at Ozio",
+    "description": "Our team, our moments.",
+    "images": [
+      { "src": "/images/team/PHOTO-2022-07-14-12-01-09.jpg", "alt": "Ozio Team" },
+      { "src": "/images/team/PHOTO-2024-01-25-13-08-23.jpg", "alt": "Ozio Office" },
+      { "src": "/images/team/PHOTO-2024-12-25-13-26-46.jpg", "alt": "Office Life" },
+      { "src": "/images/team/PHOTO-2025-01-01-13-35-35.jpg", "alt": "Team Event" },
+      { "src": "/images/team/PHOTO-2025-01-01-15-07-53.jpg", "alt": "Team Outing" },
+      { "src": "/images/team/PHOTO-2025-01-01-15-07-56.jpg", "alt": "Collaboration" },
+      { "src": "/images/team/PHOTO-2025-01-01-15-08-01.jpg", "alt": "Team Building" },
+      { "src": "/images/team/PHOTO-2025-01-01-17-24-01.jpg", "alt": "Team Meeting" }
+    ]
+  },
+  "careers": {
+    "headline": "Join the Team",
+    "intro": "We're looking for people who want to contribute meaningfully. Collaborative partners who bring ideas, initiative, and ownership.",
+    "ctaText": "View open positions",
+    "openPositions": "Open Positions",
+    "noPositions": "Check our LinkedIn page to see currently open positions.",
+    "linkedinCta": "View on LinkedIn",
+    "spontaneous": {
+      "headline": "Spontaneous Application",
+      "description": "Can't find the perfect role? Tell us who you are and what you're looking for."
+    }
+  },
+  "contact": {
+    "headline": "Contact Us",
+    "intro": "A question? An application? We'll get back to you promptly.",
+    "form": {
+      "name": "Full Name",
+      "namePlaceholder": "Full Name",
+      "email": "Email",
+      "emailPlaceholder": "Email",
+      "phone": "Phone",
+      "phonePlaceholder": "Phone Number",
+      "linkedin": "LinkedIn Profile",
+      "linkedinPlaceholder": "https://linkedin.com/in/your-profile",
+      "message": "Message",
+      "messagePlaceholder": "Tell us about yourself and what you're looking for...",
+      "submit": "Send",
+      "sending": "Sending...",
+      "success": "Message sent successfully.",
+      "error": "Error sending message. Please try again."
+    },
+    "validation": {
+      "nameRequired": "Name is required",
+      "emailRequired": "Email is required",
+      "emailInvalid": "Invalid email",
+      "phoneRequired": "Phone is required",
+      "linkedinRequired": "LinkedIn profile is required",
+      "linkedinInvalid": "Invalid LinkedIn URL",
+      "messageRequired": "Message is required"
+    }
+  },
+  "thankYou": {
+    "headline": "Thank You",
+    "message": "Your message has been sent. We'll get back to you within 48 hours.",
+    "nextSteps": "In the meantime, discover our culture and teams.",
+    "backHome": "Back to Home",
+    "exploreCulture": "Discover our culture"
+  },
+  "footer": {
+    "copyright": "© 2026 Ozio Group. All rights reserved."
+  }
+}

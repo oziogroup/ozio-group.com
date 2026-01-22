@@ -1,0 +1,54 @@
+---
+import AnimatedBackground from '@components/ui/AnimatedBackground.astro';
+
+interface Props {
+  headline: string;
+  subheadline: string;
+  ctaText: string;
+  ctaHref: string;
+}
+
+const { headline, subheadline, ctaText, ctaHref } = Astro.props;
+---
+
+<section class="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
+  <div class="absolute inset-0 bg-gradient-to-b from-background via-background to-surface -z-20"></div>
+  <AnimatedBackground variant="orbs" intensity="medium" />
+  
+  <div class="container mx-auto px-6 py-20 md:py-32">
+    <div class="max-w-4xl mx-auto text-center" data-animate="fade-up">
+      <h1 class="text-5xl md:text-7xl lg:text-8xl font-heading font-bold mb-8 leading-tight" data-parallax="0.2">
+        <span class="bg-gradient-to-r from-accent to-accent-hover bg-clip-text text-transparent">
+          {headline}
+        </span>
+      </h1>
+      
+      <p class="text-xl md:text-2xl text-text-secondary max-w-2xl mx-auto mb-12 leading-relaxed" data-animate="fade-up">
+        {subheadline}
+      </p>
+      
+      <div data-animate="fade-up">
+        <a 
+          href={ctaHref}
+          class="btn-primary group gap-3 px-8 py-4 text-lg"
+        >
+          {ctaText}
+          <svg 
+            class="w-5 h-5 transition-transform group-hover:translate-x-1" 
+            fill="none" 
+            stroke="currentColor" 
+            viewBox="0 0 24 24"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+  
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+    <svg class="w-6 h-6 text-text-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+    </svg>
+  </div>
+</section>

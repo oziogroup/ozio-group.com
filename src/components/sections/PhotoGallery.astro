@@ -1,0 +1,43 @@
+---
+interface Props {
+  headline: string;
+  description: string;
+  images: {
+    src: string;
+    alt: string;
+  }[];
+}
+
+const { headline, description, images } = Astro.props;
+---
+
+<section class="py-24 md:py-40 bg-surface">
+  <div class="container mx-auto px-6">
+    <div class="max-w-4xl mx-auto text-center mb-16" data-animate="fade-up">
+      <h2 class="text-3xl md:text-5xl font-heading font-bold mb-4">
+        {headline}
+      </h2>
+      <p class="text-xl text-text-secondary">
+        {description}
+      </p>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 max-w-6xl mx-auto" data-animate="stagger">
+      {images.map((image) => (
+        <div class="relative aspect-square overflow-hidden rounded-xl group cursor-pointer">
+          <img 
+            src={image.src}
+            alt={image.alt}
+            loading="lazy"
+            decoding="async"
+            width="300"
+            height="300"
+            class="w-full h-full object-cover transition-all duration-500 group-hover:scale-110"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <div class="absolute inset-0 border-2 border-transparent group-hover:border-accent rounded-xl transition-colors duration-300 group-hover:shadow-lg group-hover:shadow-accent/30"></div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

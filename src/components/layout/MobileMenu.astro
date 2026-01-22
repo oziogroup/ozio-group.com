@@ -1,0 +1,123 @@
+---
+interface NavLink {
+  href: string;
+  label: string;
+}
+
+interface Props {
+  lang: 'fr' | 'en';
+  links: NavLink[];
+  currentPath?: string;
+}
+
+const { lang, links, currentPath = '' } = Astro.props;
+---
+
+<!-- Hamburger Button (mobile only) -->
+<button
+  type="button"
+  class="md:hidden flex items-center justify-center w-12 h-12 text-white hover:text-accent transition-colors"
+  aria-label={lang === 'fr' ? 'Ouvrir le menu' : 'Open menu'}
+  aria-expanded="false"
+  data-mobile-menu-trigger
+>
+  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+  </svg>
+</button>
+
+<!-- Mobile Menu Overlay - Full screen, solid background -->
+<div
+  class="fixed top-0 left-0 w-screen h-screen z-[9999] opacity-0 pointer-events-none transition-opacity duration-200 md:hidden"
+  style="background-color: #0a0a0a;"
+  data-mobile-menu
+  aria-hidden="true"
+>
+  <div class="flex flex-col h-full w-full bg-background">
+    <!-- Header with close button -->
+    <div class="flex items-center justify-between px-4 h-16 border-b border-elevated">
+      <a href={`/${lang}/`} class="flex items-center">
+        <img 
+          src="/images/logo.png" 
+          alt="Ozio Group" 
+          class="h-8 w-auto"
+        />
+      </a>
+      <button
+        type="button"
+        class="flex items-center justify-center w-12 h-12 text-white hover:text-accent transition-colors"
+        aria-label={lang === 'fr' ? 'Fermer le menu' : 'Close menu'}
+        data-mobile-menu-close
+      >
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Navigation Links -->
+    <nav class="flex-1 flex flex-col justify-center px-8">
+      {links.map((link) => {
+        const isActive = currentPath === link.href || 
+          (link.href !== `/${lang}/` && currentPath.startsWith(link.href));
+        return (
+          <a
+            href={link.href}
+            class:list={[
+              'py-4 text-2xl font-heading font-semibold transition-colors min-h-[48px] flex items-center',
+              isActive 
+                ? 'text-accent' 
+                : 'text-white hover:text-accent'
+            ]}
+          >
+            {link.label}
+          </a>
+        );
+      })}
+    </nav>
+
+    <!-- Footer -->
+    <div class="px-8 py-6 border-t border-elevated">
+      <p class="text-text-muted text-sm">
+        © 2016–{new Date().getFullYear()} Ozio Group
+      </p>
+    </div>
+  </div>
+</div>
+
+<script>
+  const trigger = document.querySelector('[data-mobile-menu-trigger]');
+  const menu = document.querySelector('[data-mobile-menu]');
+  const closeBtn = document.querySelector('[data-mobile-menu-close]');
+
+  function openMenu() {
+    if (!menu || !trigger) return;
+    menu.classList.remove('opacity-0', 'pointer-events-none');
+    menu.classList.add('opacity-100', 'pointer-events-auto');
+    menu.setAttribute('aria-hidden', 'false');
+    trigger.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMenu() {
+    if (!menu || !trigger) return;
+    menu.classList.add('opacity-0', 'pointer-events-none');
+    menu.classList.remove('opacity-100', 'pointer-events-auto');
+    menu.setAttribute('aria-hidden', 'true');
+    trigger.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+
+  trigger?.addEventListener('click', openMenu);
+  closeBtn?.addEventListener('click', closeMenu);
+
+  // Close on escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeMenu();
+  });
+
+  // Close on clicking outside (on the backdrop)
+  menu?.addEventListener('click', (e) => {
+    if (e.target === menu) closeMenu();
+  });
+</script>

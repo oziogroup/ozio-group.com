@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ozio Group - Design Directions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #121212;
+            --bg-surface: #1a1a1a;
+            --bg-elevated: #242424;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --text-muted: #666666;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 16px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-title {
+            font-weight: 700;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-tabs {
+            display: flex;
+            gap: 8px;
+        }
+
+        .nav-tab {
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 500;
+            transition: all 0.2s;
+            border: 1px solid transparent;
+        }
+
+        .nav-tab:hover {
+            background: var(--bg-surface);
+        }
+
+        .nav-tab.active {
+            background: var(--bg-elevated);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Direction Sections */
+        .direction {
+            display: none;
+            min-height: 100vh;
+            padding-top: 80px;
+        }
+
+        .direction.active {
+            display: block;
+        }
+
+        /* Direction 1: Electric Blue */
+        .direction-1 {
+            --accent: #0066FF;
+            --accent-glow: rgba(0, 102, 255, 0.3);
+            --gradient: linear-gradient(135deg, #0066FF 0%, #00D4FF 100%);
+        }
+
+        /* Direction 2: Vibrant Gradient */
+        .direction-2 {
+            --accent: #8B5CF6;
+            --accent-glow: rgba(139, 92, 246, 0.3);
+            --gradient: linear-gradient(135deg, #0066FF 0%, #8B5CF6 50%, #EC4899 100%);
+        }
+
+        /* Direction 3: Monochrome + Pop */
+        .direction-3 {
+            --accent: #10B981;
+            --accent-glow: rgba(16, 185, 129, 0.3);
+            --gradient: linear-gradient(135deg, #10B981 0%, #34D399 100%);
+        }
+
+        /* Direction 4: Warm Tech */
+        .direction-4 {
+            --accent: #F59E0B;
+            --accent-glow: rgba(245, 158, 11, 0.3);
+            --gradient: linear-gradient(135deg, #F59E0B 0%, #EF4444 100%);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 120px 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: var(--bg-surface);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 100px;
+            font-size: 13px;
+            font-weight: 500;
+            margin-bottom: 32px;
+        }
+
+        .hero-badge-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--accent);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .hero h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(48px, 8vw, 96px);
+            font-weight: 700;
+            line-height: 1.05;
+            margin-bottom: 24px;
+            letter-spacing: -2px;
+        }
+
+        .hero h1 .gradient-text {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 20px;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin-bottom: 48px;
+            line-height: 1.6;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            padding: 16px 32px;
+            background: var(--gradient);
+            border: none;
+            border-radius: 12px;
+            color: white;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px var(--accent-glow);
+        }
+
+        .btn-secondary {
+            padding: 16px 32px;
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            color: white;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-secondary:hover {
+            background: var(--bg-surface);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Stats Section */
+        .stats {
+            padding: 80px 40px;
+            background: var(--bg-secondary);
+        }
+
+        .stats-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 64px;
+            font-weight: 700;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 120px 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-label {
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent);
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(32px, 5vw, 56px);
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        @media (max-width: 968px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .feature-card {
+            background: var(--bg-surface);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 40px;
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .feature-icon {
+            width: 56px;
+            height: 56px;
+            background: var(--gradient);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            font-size: 24px;
+        }
+
+        .feature-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .feature-desc {
+            color: var(--text-secondary);
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        /* Jobs Section */
+        .jobs {
+            padding: 120px 40px;
+            background: var(--bg-secondary);
+        }
+
+        .jobs-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .jobs-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-top: 60px;
+        }
+
+        .job-card {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 28px 32px;
+            background: var(--bg-surface);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .job-card:hover {
+            border-color: var(--accent);
+            background: var(--bg-elevated);
+        }
+
+        .job-info h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .job-meta {
+            display: flex;
+            gap: 16px;
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        .job-arrow {
+            width: 40px;
+            height: 40px;
+            background: var(--bg-elevated);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+
+        .job-card:hover .job-arrow {
+            background: var(--accent);
+        }
+
+        /* Footer */
+        .footer {
+            padding: 80px 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 32px;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--text-primary);
+        }
+
+        /* Direction Info Panel */
+        .direction-info {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            background: var(--bg-surface);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 24px;
+            max-width: 320px;
+            z-index: 1000;
+        }
+
+        .direction-info h3 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .direction-info p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .color-preview {
+            display: flex;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .color-swatch {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+        }
+
+        /* Language Toggle */
+        .lang-toggle {
+            display: flex;
+            gap: 4px;
+            padding: 4px;
+            background: var(--bg-surface);
+            border-radius: 8px;
+        }
+
+        .lang-btn {
+            padding: 6px 12px;
+            border: none;
+            background: transparent;
+            color: var(--text-secondary);
+            font-size: 13px;
+            font-weight: 500;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .lang-btn.active {
+            background: var(--bg-elevated);
+            color: var(--text-primary);
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-title">OZIO GROUP — Design Directions</div>
+        <div class="nav-tabs">
+            <div class="nav-tab active" data-direction="1">Electric Blue</div>
+            <div class="nav-tab" data-direction="2">Vibrant Gradient</div>
+            <div class="nav-tab" data-direction="3">Emerald Pop</div>
+            <div class="nav-tab" data-direction="4">Warm Tech</div>
+        </div>
+        <div class="lang-toggle">
+            <button class="lang-btn active">EN</button>
+            <button class="lang-btn">FR</button>
+        </div>
+    </nav>
+
+    <!-- Direction 1: Electric Blue -->
+    <section class="direction direction-1 active" id="direction-1">
+        <div class="hero">
+            <div class="hero-badge">
+                <span class="hero-badge-dot"></span>
+                We're hiring talented people
+            </div>
+            <h1>Build the future<br>with <span class="gradient-text">Ozio Group</span></h1>
+            <p class="hero-subtitle">Join a team of 50+ professionals building innovative solutions for Fortune 500 clients. No call centers. Real engineering.</p>
+            <div class="hero-cta">
+                <button class="btn-primary">View Open Positions</button>
+                <button class="btn-secondary">About Us</button>
+            </div>
+        </div>
+
+        <div class="stats">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Team Members</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">12</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">30+</div>
+                    <div class="stat-label">Active Projects</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">Departments</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="features">
+            <div class="section-header">
+                <div class="section-label">Why Ozio</div>
+                <h2 class="section-title">Not your typical outsourcing</h2>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3 class="feature-title">Real Projects</h3>
+                    <p class="feature-desc">Work on meaningful projects for enterprise clients. No scripts. No call queues. Actual engineering challenges.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <h3 class="feature-title">Growth Path</h3>
+                    <p class="feature-desc">Clear career progression with mentorship and learning opportunities. We invest in your development.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌍</div>
+                    <h3 class="feature-title">French-Speaking</h3>
+                    <p class="feature-desc">Join our French-speaking community in Israel. Feel at home while building an international career.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="jobs">
+            <div class="jobs-container">
+                <div class="section-header">
+                    <div class="section-label">Open Positions</div>
+                    <h2 class="section-title">Join our team</h2>
+                </div>
+                <div class="jobs-list">
+                    <div class="job-card">
+                        <div class="job-info">
+                            <h3>Senior Full-Stack Developer</h3>
+                            <div class="job-meta">
+                                <span>Engineering</span>
+                                <span>Tel Aviv</span>
+                                <span>Full-time</span>
+                            </div>
+                        </div>
+                        <div class="job-arrow">→</div>
+                    </div>
+                    <div class="job-card">
+                        <div class="job-info">
+                            <h3>DevOps Engineer</h3>
+                            <div class="job-meta">
+                                <span>Engineering</span>
+                                <span>Tel Aviv</span>
+                                <span>Full-time</span>
+                            </div>
+                        </div>
+                        <div class="job-arrow">→</div>
+                    </div>
+                    <div class="job-card">
+                        <div class="job-info">
+                            <h3>Technical Support Lead</h3>
+                            <div class="job-meta">
+                                <span>Support</span>
+                                <span>Tel Aviv</span>
+                                <span>Full-time</span>
+                            </div>
+                        </div>
+                        <div class="job-arrow">→</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-logo">OZIO</div>
+                <div class="footer-links">
+                    <a href="#">About</a>
+                    <a href="#">Careers</a>
+                    <a href="#">Contact</a>
+                    <a href="#">LinkedIn</a>
+                </div>
+            </div>
+        </footer>
+    </section>
+
+    <!-- Direction 2: Vibrant Gradient -->
+    <section class="direction direction-2" id="direction-2">
+        <div class="hero">
+            <div class="hero-badge">
+                <span class="hero-badge-dot"></span>
+                We're hiring talented people
+            </div>
+            <h1>Build the future<br>with <span class="gradient-text">Ozio Group</span></h1>
+            <p class="hero-subtitle">Join a team of 50+ professionals building innovative solutions for Fortune 500 clients. No call centers. Real engineering.</p>
+            <div class="hero-cta">
+                <button class="btn-primary">View Open Positions</button>
+                <button class="btn-secondary">About Us</button>
+            </div>
+        </div>
+
+        <div class="stats">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Team Members</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">12</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">30+</div>
+                    <div class="stat-label">Active Projects</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">Departments</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="features">
+            <div class="section-header">
+                <div class="section-label">Why Ozio</div>
+                <h2 class="section-title">Not your typical outsourcing</h2>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3 class="feature-title">Real Projects</h3>
+                    <p class="feature-desc">Work on meaningful projects for enterprise clients. No scripts. No call queues. Actual engineering challenges.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <h3 class="feature-title">Growth Path</h3>
+                    <p class="feature-desc">Clear career progression with mentorship and learning opportunities. We invest in your development.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌍</div>
+                    <h3 class="feature-title">French-Speaking</h3>
+                    <p class="feature-desc">Join our French-speaking community in Israel. Feel at home while building an international career.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="jobs">
+            <div class="jobs-container">
+                <div class="section-header">
+                    <div class="section-label">Open Positions</div>
+                    <h2 class="section-title">Join our team</h2>
+                </div>
+                <div class="jobs-list">
+                    <div class="job-card">
+                        <div class="job-info">
+                            <h3>Senior Full-Stack Developer</h3>
+                            <div class="job-meta">
+                                <span>Engineering</span>
+                                <span>Tel Aviv</span>
+                                <span>Full-time</span>
+                            </div>
+                        </div>
+                        <div class="job-arrow">→</div>
+                    </div>
+                    <div class="job-card">
+                        <div class="job-info">
+                            <h3>DevOps Engineer</h3>
+                            <div class="job-meta">
+                                <span>Engineering</span>
+                                <span>Tel Aviv</span>
+                                <span>Full-time</span>
+                            </div>
+                        </div>
+                        <div class="job-arrow">→</div>
+                    </div>
+                    <div class="job-card">
+                        <div class="job-info">
+                            <h3>Technical Support Lead</h3>
+                            <div class="job-meta">
+                                <span>Support</span>
+                                <span>Tel Aviv</span>
+                                <span>Full-time</span>
+                            </div>
+                        </div>
+                        <div class="job-arrow">→</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-logo">OZIO</div>
+                <div class="footer-links">
+                    <a href="#">About</a>
+                    <a href="#">Careers</a>
+                    <a href="#">Contact</a>
+                    <a href="#">LinkedIn</a>
+                </div>
+            </div>
+        </footer>
+    </section>
+
+    <!-- Direction 3: Emerald Pop -->
+    <section class="direction direction-3" id="direction-3">
+        <div class="hero">
+            <div class="hero-badge">
+                <span class="hero-badge-dot"></span>
+                We're hiring talented people
+            </div>
+            <h1>Build the future<br>with <span class="gradient-text">Ozio Group</span></h1>
+            <p class="hero-subtitle">Join a team of 50+ professionals building innovative solutions for Fortune 500 clients. No call centers. Real engineering.</p>
+            <div class="hero-cta">
+                <button class="btn-primary">View Open Positions</button>
+                <button class="btn-secondary">About Us</button>
+            </div>
+        </div>
+
+        <div class="stats">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Team Members</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">12</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">30+</div>
+                    <div class="stat-label">Active Projects</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">Departments</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="features">
+            <div class="section-header">
+                <div class="section-label">Why Ozio</div>
+                <h2 class="section-title">Not your typical outsourcing</h2>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3 class="feature-title">Real Projects</h3>
+                    <p class="feature-desc">Work on meaningful projects for enterprise clients. No scripts. No call queues. Actual engineering challenges.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <h3 class="feature-title">Growth Path</h3>
+                    <p class="feature-desc">Clear career progression with mentorship and learning opportunities. We invest in your development.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌍</div>
+                    <h3 class="feature-title">French-Speaking</h3>
+                    <p class="feature-desc">Join our French-speaking community in Israel. Feel at home while building an international career.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="jobs">
+            <div class="jobs-container">
+                <div class="section-header">
+                    <div class="section-label">Open Positions</div>
+                    <h2 class="section-title">Join our team</h2>
+                </div>
+                <div class="jobs-list">
+                    <div class="job-card">
+                        <div class="job-info">
+                            <h3>Senior Full-Stack Developer</h3>
+                            <div class="job-meta">
+                                <span>Engineering</span>
+                                <span>Tel Aviv</span>
+                                <span>Full-time</span>
+                            </div>
+                        </div>
+                        <div class="job-arrow">→</div>
+                    </div>
+                    <div class="job-card">
+                        <div class="job-info">
+                            <h3>DevOps Engineer</h3>
+                            <div class="job-meta">
+                                <span>Engineering</span>
+                                <span>Tel Aviv</span>
+                                <span>Full-time</span>
+                            </div>
+                        </div>
+                        <div class="job-arrow">→</div>
+                    </div>
+                    <div class="job-card">
+                        <div class="job-info">
+                            <h3>Technical Support Lead</h3>
+                            <div class="job-meta">
+                                <span>Support</span>
+                                <span>Tel Aviv</span>
+                                <span>Full-time</span>
+                            </div>
+                        </div>
+                        <div class="job-arrow">→</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-logo">OZIO</div>
+                <div class="footer-links">
+                    <a href="#">About</a>
+                    <a href="#">Careers</a>
+                    <a href="#">Contact</a>
+                    <a href="#">LinkedIn</a>
+                </div>
+            </div>
+        </footer>
+    </section>
+
+    <!-- Direction 4: Warm Tech -->
+    <section class="direction direction-4" id="direction-4">
+        <div class="hero">
+            <div class="hero-badge">
+                <span class="hero-badge-dot"></span>
+                We're hiring talented people
+            </div>
+            <h1>Build the future<br>with <span class="gradient-text">Ozio Group</span></h1>
+            <p class="hero-subtitle">Join a team of 50+ professionals building innovative solutions for Fortune 500 clients. No call centers. Real engineering.</p>
+            <div class="hero-cta">
+                <button class="btn-primary">View Open Positions</button>
+                <button class="btn-secondary">About Us</button>
+            </div>
+        </div>
+
+        <div class="stats">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Team Members</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">12</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">30+</div>
+                    <div class="stat-label">Active Projects</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">Departments</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="features">
+            <div class="section-header">
+                <div class="section-label">Why Ozio</div>
+                <h2 class="section-title">Not your typical outsourcing</h2>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3 class="feature-title">Real Projects</h3>
+                    <p class="feature-desc">Work on meaningful projects for enterprise clients. No scripts. No call queues. Actual engineering challenges.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <h3 class="feature-title">Growth Path</h3>
+                    <p class="feature-desc">Clear career progression with mentorship and learning opportunities. We invest in your development.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌍</div>
+                    <h3 class="feature-title">French-Speaking</h3>
+                    <p class="feature-desc">Join our French-speaking community in Israel. Feel at home while building an international career.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="jobs">
+            <div class="jobs-container">
+                <div class="section-header">
+                    <div class="section-label">Open Positions</div>
+                    <h2 class="section-title">Join our team</h2>
+                </div>
+                <div class="jobs-list">
+                    <div class="job-card">
+                        <div class="job-info">
+                            <h3>Senior Full-Stack Developer</h3>
+                            <div class="job-meta">
+                                <span>Engineering</span>
+                                <span>Tel Aviv</span>
+                                <span>Full-time</span>
+                            </div>
+                        </div>
+                        <div class="job-arrow">→</div>
+                    </div>
+                    <div class="job-card">
+                        <div class="job-info">
+                            <h3>DevOps Engineer</h3>
+                            <div class="job-meta">
+                                <span>Engineering</span>
+                                <span>Tel Aviv</span>
+                                <span>Full-time</span>
+                            </div>
+                        </div>
+                        <div class="job-arrow">→</div>
+                    </div>
+                    <div class="job-card">
+                        <div class="job-info">
+                            <h3>Technical Support Lead</h3>
+                            <div class="job-meta">
+                                <span>Support</span>
+                                <span>Tel Aviv</span>
+                                <span>Full-time</span>
+                            </div>
+                        </div>
+                        <div class="job-arrow">→</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-logo">OZIO</div>
+                <div class="footer-links">
+                    <a href="#">About</a>
+                    <a href="#">Careers</a>
+                    <a href="#">Contact</a>
+                    <a href="#">LinkedIn</a>
+                </div>
+            </div>
+        </footer>
+    </section>
+
+    <!-- Direction Info Panels -->
+    <div class="direction-info" id="info-1">
+        <h3>Direction 1: Electric Blue</h3>
+        <p>Clean, tech-forward aesthetic inspired by GitHub. Single accent color for maximum clarity and professionalism.</p>
+        <div class="color-preview">
+            <div class="color-swatch" style="background: #0066FF;"></div>
+            <div class="color-swatch" style="background: #00D4FF;"></div>
+            <div class="color-swatch" style="background: #0a0a0a;"></div>
+        </div>
+    </div>
+
+    <div class="direction-info" id="info-2" style="display: none;">
+        <h3>Direction 2: Vibrant Gradient</h3>
+        <p>Dynamic, modern feel with blue-to-purple gradient. More visual energy, still professional.</p>
+        <div class="color-preview">
+            <div class="color-swatch" style="background: linear-gradient(135deg, #0066FF, #8B5CF6);"></div>
+            <div class="color-swatch" style="background: #8B5CF6;"></div>
+            <div class="color-swatch" style="background: #0a0a0a;"></div>
+        </div>
+    </div>
+
+    <div class="direction-info" id="info-3" style="display: none;">
+        <h3>Direction 3: Emerald Pop</h3>
+        <p>Fresh, confident aesthetic. Green signals growth and success — differentiated from typical tech blue.</p>
+        <div class="color-preview">
+            <div class="color-swatch" style="background: #10B981;"></div>
+            <div class="color-swatch" style="background: #34D399;"></div>
+            <div class="color-swatch" style="background: #0a0a0a;"></div>
+        </div>
+    </div>
+
+    <div class="direction-info" id="info-4" style="display: none;">
+        <h3>Direction 4: Warm Tech</h3>
+        <p>Bold, energetic palette. Orange/amber conveys warmth and approachability while maintaining tech credibility.</p>
+        <div class="color-preview">
+            <div class="color-swatch" style="background: #F59E0B;"></div>
+            <div class="color-swatch" style="background: #EF4444;"></div>
+            <div class="color-swatch" style="background: #0a0a0a;"></div>
+        </div>
+    </div>
+
+    <script>
+        const tabs = document.querySelectorAll('.nav-tab');
+        const directions = document.querySelectorAll('.direction');
+        const infoPanels = document.querySelectorAll('.direction-info');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const direction = tab.dataset.direction;
+                
+                // Update tabs
+                tabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                
+                // Update sections
+                directions.forEach(d => d.classList.remove('active'));
+                document.getElementById(`direction-${direction}`).classList.add('active');
+                
+                // Update info panels
+                infoPanels.forEach(p => p.style.display = 'none');
+                document.getElementById(`info-${direction}`).style.display = 'block';
+            });
+        });
+
+        // Language toggle (demo)
+        const langBtns = document.querySelectorAll('.lang-btn');
+        langBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                langBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

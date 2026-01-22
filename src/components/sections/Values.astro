@@ -1,0 +1,84 @@
+---
+interface Value {
+  title: string;
+  description: string;
+}
+
+interface Props {
+  headline: string;
+  intro: string;
+  valuesHeadline: string;
+  values: Value[];
+  antiRobot: {
+    headline: string;
+    description: string;
+    points: string[];
+  };
+}
+
+const { headline, intro, valuesHeadline, values, antiRobot } = Astro.props;
+---
+
+<section class="py-20 md:py-32">
+  <div class="container mx-auto px-6">
+    <div class="max-w-4xl mx-auto text-center mb-16" data-animate="fade-up">
+      <h1 class="text-4xl md:text-6xl font-heading font-bold mb-6">
+        {headline}
+      </h1>
+      <p class="text-xl md:text-2xl text-text-secondary">
+        {intro}
+      </p>
+    </div>
+
+    <div class="max-w-5xl mx-auto mb-24">
+      <h2 class="text-2xl md:text-3xl font-heading font-bold mb-12 text-center" data-animate="fade-up">
+        {valuesHeadline}
+      </h2>
+      
+      <div class="grid md:grid-cols-3 gap-8">
+        {values.map((value, index) => (
+          <div 
+            class="bg-surface border border-elevated rounded-xl p-8 hover:border-accent/50 transition-colors duration-300"
+            data-animate="fade-up"
+            style={`animation-delay: ${index * 100}ms`}
+          >
+            <h3 class="text-2xl font-heading font-bold mb-4 bg-gradient-to-r from-accent to-accent-hover bg-clip-text text-transparent">
+              {value.title}
+            </h3>
+            <p class="text-text-secondary leading-relaxed">
+              {value.description}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="max-w-4xl mx-auto bg-surface border border-elevated rounded-2xl p-8 md:p-12" data-animate="fade-up">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 rounded-full bg-gradient-to-r from-accent to-accent-hover flex items-center justify-center">
+          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+          </svg>
+        </div>
+        <h2 class="text-2xl md:text-3xl font-heading font-bold">
+          {antiRobot.headline}
+        </h2>
+      </div>
+      
+      <p class="text-lg text-text-secondary mb-8 leading-relaxed">
+        {antiRobot.description}
+      </p>
+      
+      <ul class="space-y-4">
+        {antiRobot.points.map((point) => (
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-accent mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+            </svg>
+            <span class="text-text-primary">{point}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,57 @@
+---
+interface Props {
+  headline: string;
+  description: string;
+  highlight: string;
+  ctaText: string;
+  ctaHref: string;
+}
+
+const { headline, description, highlight, ctaText, ctaHref } = Astro.props;
+---
+
+<section class="py-20 md:py-32">
+  <div class="container mx-auto px-6">
+    <div class="max-w-4xl mx-auto">
+      <h2 
+        class="text-3xl md:text-5xl font-heading font-bold mb-8 text-center"
+        data-animate="fade-up"
+      >
+        {headline}
+      </h2>
+      
+      <p 
+        class="text-lg md:text-xl text-text-secondary leading-relaxed mb-8 text-center"
+        data-animate="fade-up"
+      >
+        {description}
+      </p>
+      
+      <blockquote 
+        class="relative border-l-4 border-accent pl-6 py-4 mb-12"
+        data-animate="fade-up"
+      >
+        <p class="text-xl md:text-2xl font-heading font-semibold text-text-primary italic">
+          "{highlight}"
+        </p>
+      </blockquote>
+      
+      <div class="text-center" data-animate="fade-up">
+        <a 
+          href={ctaHref}
+          class="inline-flex items-center gap-2 text-accent hover:text-accent-hover font-semibold transition-colors group"
+        >
+          {ctaText}
+          <svg 
+            class="w-5 h-5 transition-transform group-hover:translate-x-1" 
+            fill="none" 
+            stroke="currentColor" 
+            viewBox="0 0 24 24"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

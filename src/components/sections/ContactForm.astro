@@ -1,0 +1,279 @@
+---
+interface FormLabels {
+  name: string;
+  namePlaceholder: string;
+  email: string;
+  emailPlaceholder: string;
+  phone: string;
+  phonePlaceholder: string;
+  linkedin: string;
+  linkedinPlaceholder: string;
+  message: string;
+  messagePlaceholder: string;
+  submit: string;
+  sending: string;
+  success: string;
+  error: string;
+}
+
+interface Validation {
+  nameRequired: string;
+  emailRequired: string;
+  emailInvalid: string;
+  phoneRequired: string;
+  linkedinRequired: string;
+  linkedinInvalid: string;
+  messageRequired: string;
+}
+
+interface Props {
+  headline: string;
+  intro: string;
+  form: FormLabels;
+  validation: Validation;
+  thankYouUrl: string;
+  lang: 'fr' | 'en';
+}
+
+const { headline, intro, form, validation, thankYouUrl, lang } = Astro.props;
+
+const WEB3FORMS_ACCESS_KEY = '455a56ff-7dbf-44b7-9d0a-2a1542d554e9';
+---
+
+<section class="py-20 md:py-32">
+  <div class="container mx-auto px-6">
+    <div class="max-w-2xl mx-auto">
+      <div class="text-center mb-12" data-animate="fade-up">
+        <h1 class="text-4xl md:text-5xl font-heading font-bold mb-4">
+          {headline}
+        </h1>
+        <p class="text-xl text-text-secondary">
+          {intro}
+        </p>
+      </div>
+
+      <form 
+        id="contact-form"
+        class="space-y-6"
+        data-animate="fade-up"
+        data-thank-you-url={thankYouUrl}
+        data-validation={JSON.stringify(validation)}
+        data-labels={JSON.stringify(form)}
+      >
+        <input type="hidden" name="access_key" value={WEB3FORMS_ACCESS_KEY} />
+        <input type="hidden" name="subject" value={`Nouvelle candidature - Ozio Group (${lang.toUpperCase()})`} />
+        <input type="hidden" name="from_name" value="Ozio Group Website" />
+        
+        <input type="checkbox" name="botcheck" class="hidden" style="display:none" />
+
+        <div>
+          <label for="name" class="block text-sm font-medium text-text-primary mb-2">
+            {form.name} <span class="text-accent">*</span>
+          </label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            required
+            placeholder={form.namePlaceholder}
+            class="w-full px-4 py-3 bg-surface border border-elevated rounded-lg text-text-primary placeholder-text-muted focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors"
+          />
+          <p class="mt-1 text-sm text-red-500 hidden" data-error="name"></p>
+        </div>
+
+        <div>
+          <label for="email" class="block text-sm font-medium text-text-primary mb-2">
+            {form.email} <span class="text-accent">*</span>
+          </label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            placeholder={form.emailPlaceholder}
+            class="w-full px-4 py-3 bg-surface border border-elevated rounded-lg text-text-primary placeholder-text-muted focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors"
+          />
+          <p class="mt-1 text-sm text-red-500 hidden" data-error="email"></p>
+        </div>
+
+        <div>
+          <label for="phone" class="block text-sm font-medium text-text-primary mb-2">
+            {form.phone} <span class="text-accent">*</span>
+          </label>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            required
+            placeholder={form.phonePlaceholder}
+            class="w-full px-4 py-3 bg-surface border border-elevated rounded-lg text-text-primary placeholder-text-muted focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors"
+          />
+          <p class="mt-1 text-sm text-red-500 hidden" data-error="phone"></p>
+        </div>
+
+        <div>
+          <label for="linkedin" class="block text-sm font-medium text-text-primary mb-2">
+            {form.linkedin} <span class="text-accent">*</span>
+          </label>
+          <input
+            type="url"
+            id="linkedin"
+            name="linkedin"
+            required
+            placeholder={form.linkedinPlaceholder}
+            class="w-full px-4 py-3 bg-surface border border-elevated rounded-lg text-text-primary placeholder-text-muted focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors"
+          />
+          <p class="mt-1 text-sm text-red-500 hidden" data-error="linkedin"></p>
+        </div>
+
+        <div>
+          <label for="message" class="block text-sm font-medium text-text-primary mb-2">
+            {form.message} <span class="text-accent">*</span>
+          </label>
+          <textarea
+            id="message"
+            name="message"
+            required
+            rows="5"
+            placeholder={form.messagePlaceholder}
+            class="w-full px-4 py-3 bg-surface border border-elevated rounded-lg text-text-primary placeholder-text-muted focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors resize-none"
+          ></textarea>
+          <p class="mt-1 text-sm text-red-500 hidden" data-error="message"></p>
+        </div>
+
+        <div>
+          <button
+            type="submit"
+            id="submit-btn"
+            class="btn-primary w-full px-8 py-4 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none disabled:shadow-none"
+          >
+            <span data-text="default">{form.submit}</span>
+            <span data-text="sending" class="hidden">{form.sending}</span>
+          </button>
+        </div>
+
+        <div id="form-status" class="hidden text-center p-4 rounded-lg"></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<script>
+  function initContactForm() {
+    const form = document.getElementById('contact-form') as HTMLFormElement;
+    if (!form) return;
+
+    const submitBtn = document.getElementById('submit-btn');
+    const formStatus = document.getElementById('form-status');
+    const thankYouUrl = form.dataset.thankYouUrl;
+    const validation = JSON.parse(form.dataset.validation || '{}');
+    const labels = JSON.parse(form.dataset.labels || '{}');
+
+    function showError(field: string, message: string) {
+      const errorEl = form.querySelector(`[data-error="${field}"]`);
+      if (errorEl) {
+        errorEl.textContent = message;
+        errorEl.classList.remove('hidden');
+      }
+    }
+
+    function clearErrors() {
+      form.querySelectorAll('[data-error]').forEach(el => {
+        el.textContent = '';
+        el.classList.add('hidden');
+      });
+    }
+
+    function validateForm(): boolean {
+      clearErrors();
+      let isValid = true;
+
+      const name = (form.querySelector('#name') as HTMLInputElement).value.trim();
+      const email = (form.querySelector('#email') as HTMLInputElement).value.trim();
+      const phone = (form.querySelector('#phone') as HTMLInputElement).value.trim();
+      const linkedin = (form.querySelector('#linkedin') as HTMLInputElement).value.trim();
+      const message = (form.querySelector('#message') as HTMLTextAreaElement).value.trim();
+
+      if (!name) {
+        showError('name', validation.nameRequired);
+        isValid = false;
+      }
+
+      if (!email) {
+        showError('email', validation.emailRequired);
+        isValid = false;
+      } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        showError('email', validation.emailInvalid);
+        isValid = false;
+      }
+
+      if (!phone) {
+        showError('phone', validation.phoneRequired);
+        isValid = false;
+      }
+
+      if (!linkedin) {
+        showError('linkedin', validation.linkedinRequired);
+        isValid = false;
+      } else if (!/linkedin\.com\/in\//i.test(linkedin)) {
+        showError('linkedin', validation.linkedinInvalid);
+        isValid = false;
+      }
+
+      if (!message) {
+        showError('message', validation.messageRequired);
+        isValid = false;
+      }
+
+      return isValid;
+    }
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      if (!validateForm()) return;
+
+      if (submitBtn) {
+        submitBtn.setAttribute('disabled', 'true');
+        submitBtn.querySelector('[data-text="default"]')?.classList.add('hidden');
+        submitBtn.querySelector('[data-text="sending"]')?.classList.remove('hidden');
+      }
+
+      try {
+        const formData = new FormData(form);
+        const response = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          body: formData,
+        });
+
+        const result = await response.json();
+
+        if (result.success) {
+          if (thankYouUrl) {
+            window.location.href = thankYouUrl;
+          } else if (formStatus) {
+            formStatus.textContent = labels.success;
+            formStatus.className = 'text-center p-4 rounded-lg bg-green-500/20 text-green-400';
+            form.reset();
+          }
+        } else {
+          throw new Error(result.message || 'Submission failed');
+        }
+      } catch (error) {
+        if (formStatus) {
+          formStatus.textContent = labels.error;
+          formStatus.className = 'text-center p-4 rounded-lg bg-red-500/20 text-red-400';
+        }
+      } finally {
+        if (submitBtn) {
+          submitBtn.removeAttribute('disabled');
+          submitBtn.querySelector('[data-text="default"]')?.classList.remove('hidden');
+          submitBtn.querySelector('[data-text="sending"]')?.classList.add('hidden');
+        }
+      }
+    });
+  }
+
+  document.addEventListener('astro:page-load', initContactForm);
+  initContactForm();
+</script>

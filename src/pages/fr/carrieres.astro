@@ -1,0 +1,32 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import CareersHero from '@components/sections/CareersHero.astro';
+import fr from '@content/fr.json';
+
+const { careers } = fr;
+---
+
+<BaseLayout 
+  title="Carrières | Ozio Group" 
+  description="Rejoignez Ozio Group. Découvrez nos offres d'emploi et postulez pour faire partie de l'aventure."
+  lang="fr"
+  canonicalUrl="https://ozio-group.com/fr/carrieres"
+>
+  <CareersHero 
+    headline={careers.headline}
+    intro={careers.intro}
+    openPositions={careers.openPositions}
+    noPositions={careers.noPositions}
+    linkedinCta={careers.linkedinCta}
+    linkedinUrl="https://www.linkedin.com/company/ozio-group/jobs/"
+    spontaneous={careers.spontaneous}
+    contactHref="/fr/contact"
+  />
+</BaseLayout>
+
+<script>
+  import { initScrollReveal } from '@lib/animations';
+  
+  document.addEventListener('astro:page-load', initScrollReveal);
+  initScrollReveal();
+</script>

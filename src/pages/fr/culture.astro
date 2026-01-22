@@ -1,0 +1,43 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Values from '@components/sections/Values.astro';
+import SoulStories from '@components/sections/SoulStories.astro';
+import PhotoGallery from '@components/sections/PhotoGallery.astro';
+import fr from '@content/fr.json';
+
+const { culture, soul, gallery } = fr;
+---
+
+<BaseLayout 
+  title="Culture | Ozio Group" 
+  description="Découvrez la culture Ozio : Direct. Exigeant. Juste. Rejoignez une équipe qui valorise l'authenticité."
+  lang="fr"
+  canonicalUrl="https://ozio-group.com/fr/culture"
+>
+  <Values 
+    headline={culture.headline}
+    intro={culture.intro}
+    valuesHeadline={culture.values.headline}
+    values={culture.values.items}
+    antiRobot={culture.antiRobot}
+  />
+  
+  <SoulStories 
+    headline={soul.headline}
+    intro={soul.intro}
+    stories={soul.stories}
+  />
+  
+  <PhotoGallery 
+    headline={gallery.headline}
+    description={gallery.description}
+    images={gallery.images}
+  />
+</BaseLayout>
+
+<script>
+  import { initScrollReveal } from '@lib/animations';
+  
+  document.addEventListener('astro:page-load', initScrollReveal);
+  initScrollReveal();
+</script>

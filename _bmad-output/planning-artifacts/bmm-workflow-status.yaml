@@ -1,0 +1,117 @@
+# BMM Workflow Status
+# Tracks progress through BMad Method phases
+
+# STATUS DEFINITIONS:
+# ==================
+# Initial Status (before completion):
+#   - required: Must be completed to progress
+#   - optional: Can be completed but not required
+#   - recommended: Strongly suggested but not required
+#   - conditional: Required only if certain conditions met
+#
+# Completion Status:
+#   - {file-path}: File created/found
+#   - skipped: Optional/conditional workflow that was skipped
+
+generated: "2026-01-22T16:30:00+02:00"
+project: "Ozio Group"
+project_type: "Corporate recruitment website"
+selected_track: "bmad-method"
+field_type: "greenfield"
+workflow_path: "method-greenfield.yaml"
+
+# Project Context
+context:
+  mother_company: "Ozio Group / Ozio LTD"
+  location: "Israel"
+  hidden_brands:
+    - "depanneo.com"
+    - "ou-serrurier.fr"
+    - "ou-plombier.fr"
+  goal: "Talent-facing corporate website for employer branding and recruitment"
+  constraint: "Must not expose connection to French/EU consumer brands"
+
+workflow_status:
+  # Phase 1: Analysis (Optional)
+  - phase: 1
+    name: "Analysis"
+    workflows:
+      - id: "brainstorm-project"
+        name: "Brainstorm"
+        status: "_bmad-output/analysis/brainstorming-session-2026-01-22.md"
+        agent: "analyst"
+        command: "/brainstorming-coach"
+        selected: true
+
+      - id: "research"
+        name: "Research"
+        status: "optional"
+        agent: "analyst"
+        command: "/analyst"
+        selected: true
+
+      - id: "product-brief"
+        name: "Product Brief"
+        status: "_bmad-output/planning-artifacts/product-brief-ozio-group.com-2026-01-22.md"
+        agent: "analyst"
+        command: "/analyst"
+        selected: true
+        completed: "2026-01-22T18:08:00+02:00"
+
+  # Phase 2: Planning
+  - phase: 2
+    name: "Planning"
+    workflows:
+      - id: "prd"
+        name: "Product Requirements Document"
+        status: "_bmad-output/planning-artifacts/prd.md"
+        agent: "pm"
+        command: "/pm"
+        completed: "2026-01-22T18:48:00+02:00"
+
+      - id: "create-ux-design"
+        name: "UX Design"
+        status: "_bmad-output/planning-artifacts/ux-design-specification.md"
+        completed: "2026-01-22T18:53:00+02:00"
+        condition: "if_has_ui"
+        agent: "ux-designer"
+        command: "/ux-designer"
+
+  # Phase 3: Solutioning
+  - phase: 3
+    name: "Solutioning"
+    workflows:
+      - id: "create-architecture"
+        name: "Architecture"
+        status: "_bmad-output/planning-artifacts/architecture.md"
+        completed: "2026-01-22T19:15:00+02:00"
+        agent: "architect"
+        command: "/architect"
+
+      - id: "create-epics-and-stories"
+        name: "Epics & Stories"
+        status: "required"
+        agent: "pm"
+        command: "/pm"
+
+      - id: "test-design"
+        name: "Test Design"
+        status: "optional"
+        agent: "tea"
+        command: "/tea"
+
+      - id: "implementation-readiness"
+        name: "Implementation Readiness Check"
+        status: "required"
+        agent: "architect"
+        command: "/architect"
+
+  # Phase 4: Implementation
+  - phase: 4
+    name: "Implementation"
+    workflows:
+      - id: "sprint-planning"
+        name: "Sprint Planning"
+        status: "required"
+        agent: "sm"
+        command: "/sm"

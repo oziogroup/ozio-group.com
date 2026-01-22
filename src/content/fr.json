@@ -1,0 +1,208 @@
+{
+  "meta": {
+    "title": "Ozio Group | Rejoignez l'équipe",
+    "description": "Ozio Group - La marketplace européenne des services à domicile. Rejoignez une équipe qui fait la différence."
+  },
+  "nav": {
+    "home": "Accueil",
+    "about": "À propos",
+    "culture": "Culture",
+    "careers": "Carrières",
+    "contact": "Contact"
+  },
+  "hero": {
+    "headline": "Quand l'urgence rencontre l'expertise.",
+    "subheadline": "La marketplace européenne qui connecte des clients B2B/B2C à des techniciens qualifiés — serruriers, plombiers, électriciens, vitriers, etc. Un travail porteur de sens, avec un impact concret.",
+    "cta": "Voir les postes"
+  },
+  "stats": {
+    "requests": { "value": 25000, "display": "25K+", "label": "requêtes mensuelles" },
+    "revenue": { "value": 15, "display": "€15M+", "label": "Volume d'affaires annuel" },
+    "artisans": { "value": 2000, "display": "2000+", "label": "techniciens partenaires" },
+    "years": { "value": 9, "display": "9", "label": "années d'existence" }
+  },
+  "marketplace": {
+    "headline": "Ce que nous faisons",
+    "description": "Ozio connecte les propriétaires en urgence avec des artisans de confiance. Quand une famille est bloquée dehors à -5°C, nous trouvons un serrurier en 25 minutes. Quand une fuite menace une maison, nous envoyons un plombier qualifié.",
+    "highlight": "La technologie au service des situations humaines.",
+    "cta": "Découvrir notre culture"
+  },
+  "about": {
+    "headline": "À propos d'Ozio",
+    "intro": "Depuis 2016, nous connectons les propriétaires en urgence avec des artisans de confiance partout en Europe. Une marketplace technologique construite autour des moments humains."
+  },
+  "culture": {
+    "headline": "Notre Culture",
+    "intro": "Des échanges authentiques. Des décisions responsabilisées. Un travail qui compte pour ceux que nous servons.",
+    "ctaText": "Découvrir notre culture",
+    "values": {
+      "headline": "Nos Valeurs",
+      "items": [
+        {
+          "title": "Transparent",
+          "description": "Une communication ouverte à tous les niveaux. Feedback immédiat, résolution collaborative. Quand quelque chose doit être adressé, on l'adresse ensemble."
+        },
+        {
+          "title": "Engagé",
+          "description": "L'excellence comme standard. Chaque interaction est une opportunité, chaque intervention une responsabilité. Le travail compte, alors nous donnons le meilleur."
+        },
+        {
+          "title": "Équitable",
+          "description": "De la justice pour tous — clients, artisans, collègues. La confiance se construit par des actions cohérentes dans le temps."
+        }
+      ]
+    },
+    "antiRobot": {
+      "headline": "Des opérations centrées sur l'humain",
+      "description": "Chez Ozio, vous apportez votre jugement à chaque situation. Une famille bloquée dehors à minuit nécessite une approche différente d'un dégât des eaux un dimanche. Vous êtes responsabilisé pour prendre des décisions à impact réel.",
+      "points": [
+        "Des défis variés — chaque jour apporte son lot de nouveautés",
+        "De l'autonomie dans vos décisions",
+        "Un impact visible sur la vie des gens"
+      ]
+    }
+  },
+  "soul": {
+    "headline": "Pourquoi ça compte",
+    "intro": "Derrière chaque appel, il y a une histoire humaine. Ce sont ces moments qui définissent ce que nous faisons.",
+    "ctaText": "Lire plus d'histoires",
+    "stories": [
+      {
+        "title": "Des vraies urgences",
+        "subtitle": "Quand chaque seconde compte",
+        "content": "Une mère avec trois jeunes enfants, bloquée dehors à -5°C. Il était 23h un mardi. Notre équipe a trouvé un serrurier disponible en 8 minutes. Il est arrivé en 25 minutes. Les enfants dormaient dans leur propre lit 30 minutes plus tard. La mère a rappelé le lendemain pour nous remercier de nos services.",
+        "highlight": "Connecter les personnes aux solutions, quand ça compte le plus.",
+        "stat": "25 min",
+        "statLabel": "temps de réponse"
+      },
+      {
+        "title": "De la finance au terrain",
+        "subtitle": "Une transformation de carrière",
+        "content": "Marc a passé 12 ans dans le système bancaire. En quête d'un travail plus porteur de sens, il a fait le pas. 3 ans plus tard, il dirige une équipe de 3 serruriers et génère €1M de chiffre d'affaires annuel via notre plateforme. Nous l'avons accompagné — du lancement à ses premiers clients, à travers les complexités administratives jusqu'à la structuration de sa croissance.",
+        "highlight": "Construire des carrières, un partenariat à la fois.",
+        "stat": "€1M",
+        "statLabel": "CA annuel"
+      },
+      {
+        "title": "L'inondation du dimanche",
+        "subtitle": "Quand le désastre frappe",
+        "content": "4h du matin un dimanche. Une canalisation qui éclate dans une maison familiale. De l'eau qui monte vite. En 12 minutes, nous avions un plombier en route. Il est arrivé, a contenu l'inondation, et est resté jusqu'à 7h pour s'assurer que la maison était en sécurité. Ce qui aurait pu être catastrophique a été limité à une seule pièce.",
+        "highlight": "Prêts quand ça compte, 24h/24.",
+        "stat": "12 min",
+        "statLabel": "temps d'envoi"
+      }
+    ]
+  },
+  "departments": {
+    "headline": "Nos Équipes",
+    "intro": "Chaque département contribue à une mission commune : connecter ceux qui ont besoin d'aide avec ceux qui peuvent la fournir.",
+    "lookingForLabel": "On recherche :",
+    "peopleLabel": "personnes",
+    "items": [
+      {
+        "name": "Tech",
+        "tagline": "Construire le futur des services à domicile",
+        "description": "La plateforme qui orchestre tout. APIs, matching algorithmique, apps mobiles. Stack moderne (React, Node, PostgreSQL), défis porteurs de sens, et autonomie pour livrer des features qui comptent.",
+        "teamSize": "3",
+        "lookingFor": "Développeurs full-stack",
+        "icon": "code"
+      },
+      {
+        "name": "Marketing",
+        "tagline": "Connecter les propriétaires aux solutions",
+        "description": "Acquisition, SEO, brand, et performance marketing. Des campagnes data-driven qui connectent les propriétaires en urgence aux artisans qui peuvent les aider. €2M+ de budget pub annuel à optimiser.",
+        "teamSize": "3",
+        "lookingFor": "Head of SEA, Growth marketers",
+        "icon": "megaphone"
+      },
+      {
+        "name": "Réseau Artisans",
+        "tagline": "Développer le réseau, un artisan à la fois",
+        "description": "Construire et développer notre réseau d'artisans partenaires. Relations terrain, négociation, onboarding, et fidélisation. Le pont entre Ozio et 2 000+ artisans qualifiés.",
+        "teamSize": "2",
+        
+        "icon": "handshake"
+      },
+      {
+        "name": "Opérations",
+        "tagline": "Le cœur battant de chaque intervention",
+        "description": "Coordonner 25 000+ demandes mensuelles. Optimisation des dispatches, qualité de service, et amélioration continue. Quand une famille a besoin d'aide à minuit, c'est Ops qui fait arriver les secours.",
+        "teamSize": "4",
+        "lookingFor": "Head of Operations",
+        "icon": "cog"
+      },
+      {
+        "name": "Support",
+        "tagline": "La voix humaine d'Ozio",
+        "description": "Premiers interlocuteurs pour les clients et artisans. Résolution de problèmes sous pression, désescalade, et transformer des moments stressants en expériences positives. L'empathie comme compétence clé.",
+        "teamSize": "20",
+        "icon": "headset"
+      }
+    ]
+  },
+  "gallery": {
+    "headline": "La vie chez Ozio",
+    "description": "Notre équipe, nos moments.",
+    "images": [
+      { "src": "/images/team/PHOTO-2022-07-14-12-01-09.jpg", "alt": "Équipe Ozio" },
+      { "src": "/images/team/PHOTO-2024-01-25-13-08-23.jpg", "alt": "Bureau Ozio" },
+      { "src": "/images/team/PHOTO-2024-12-25-13-26-46.jpg", "alt": "Vie au bureau" },
+      { "src": "/images/team/PHOTO-2025-01-01-13-35-35.jpg", "alt": "Événement équipe" },
+      { "src": "/images/team/PHOTO-2025-01-01-15-07-53.jpg", "alt": "Sortie équipe" },
+      { "src": "/images/team/PHOTO-2025-01-01-15-07-56.jpg", "alt": "Collaboration" },
+      { "src": "/images/team/PHOTO-2025-01-01-15-08-01.jpg", "alt": "Team building" },
+      { "src": "/images/team/PHOTO-2025-01-01-17-24-01.jpg", "alt": "Réunion équipe" }
+    ]
+  },
+  "careers": {
+    "headline": "Rejoignez l'équipe",
+    "intro": "Nous cherchons des personnes qui veulent contribuer de manière significative. Des partenaires collaboratifs qui apportent idées, initiative et responsabilité.",
+    "ctaText": "Voir les postes ouverts",
+    "openPositions": "Postes ouverts",
+    "noPositions": "Consulttez notre page LinkedIn pour voir les postes actuellement ouverts.",
+    "linkedinCta": "Voir sur LinkedIn",
+    "spontaneous": {
+      "headline": "Candidature spontanée",
+      "description": "Vous ne trouvez pas le poste idéal ? Dites-nous qui vous êtes et ce que vous cherchez."
+    }
+  },
+  "contact": {
+    "headline": "Contactez-nous",
+    "intro": "Une question ? Une candidature ? On vous répond rapidement.",
+    "form": {
+      "name": "Nom complet",
+      "namePlaceholder": "Nom complet",
+      "email": "Email",
+      "emailPlaceholder": "Email",
+      "phone": "Téléphone",
+      "phonePlaceholder": "Phone Number",
+      "linkedin": "Profil LinkedIn",
+      "linkedinPlaceholder": "https://linkedin.com/in/votre-profil",
+      "message": "Message",
+      "messagePlaceholder": "Parlez-nous de vous et de ce que vous recherchez...",
+      "submit": "Envoyer",
+      "sending": "Envoi en cours...",
+      "success": "Message envoyé avec succès.",
+      "error": "Erreur lors de l'envoi. Veuillez réessayer."
+    },
+    "validation": {
+      "nameRequired": "Le nom est requis",
+      "emailRequired": "L'email est requis",
+      "emailInvalid": "Email invalide",
+      "phoneRequired": "Le téléphone est requis",
+      "linkedinRequired": "Le profil LinkedIn est requis",
+      "linkedinInvalid": "URL LinkedIn invalide",
+      "messageRequired": "Le message est requis"
+    }
+  },
+  "thankYou": {
+    "headline": "Merci",
+    "message": "Votre message a bien été envoyé. Nous vous répondrons bientôt.",
+    "nextSteps": "En attendant, découvrez notre culture et nos équipes.",
+    "backHome": "Retour à l'accueil",
+    "exploreCulture": "Découvrir notre culture"
+  },
+  "footer": {
+    "copyright": "© 2026 Ozio Group. Tous droits réservés."
+  }
+}

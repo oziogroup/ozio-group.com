@@ -1,0 +1,55 @@
+---
+import AnimatedBackground from '@components/ui/AnimatedBackground.astro';
+
+interface Value {
+  title: string;
+  description: string;
+}
+
+interface Props {
+  headline: string;
+  intro: string;
+  values: Value[];
+  ctaText: string;
+  ctaHref: string;
+}
+
+const { headline, intro, values, ctaText, ctaHref } = Astro.props;
+---
+
+<section class="py-24 md:py-40 relative overflow-hidden">
+  <AnimatedBackground variant="grid" intensity="subtle" />
+  
+  <div class="container mx-auto px-6">
+    <div class="text-center mb-16" data-animate="fade-up">
+      <h2 class="text-3xl md:text-5xl font-heading font-bold mb-4">
+        {headline}
+      </h2>
+      <p class="text-xl text-text-secondary max-w-2xl mx-auto">
+        {intro}
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-12" data-animate="stagger">
+      {values.map((value, index) => (
+        <div class="group text-center p-8 bg-surface/50 backdrop-blur-sm border border-elevated rounded-2xl hover:border-accent/50 transition-all duration-300 hover:-translate-y-1">
+          <div class="w-12 h-12 mx-auto mb-6 rounded-full bg-accent/20 flex items-center justify-center group-hover:bg-accent/30 transition-colors">
+            <span class="text-2xl font-heading font-bold text-accent">{index + 1}</span>
+          </div>
+          <h3 class="text-xl font-heading font-bold mb-3 text-white">
+            {value.title}
+          </h3>
+          <p class="text-text-secondary leading-relaxed">
+            {value.description}
+          </p>
+        </div>
+      ))}
+    </div>
+
+    <div class="text-center" data-animate="fade-up">
+      <a href={ctaHref} class="btn-secondary px-8 py-4">
+        {ctaText}
+      </a>
+    </div>
+  </div>
+</section>

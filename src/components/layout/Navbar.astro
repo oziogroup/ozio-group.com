@@ -1,0 +1,78 @@
+---
+import LanguageToggle from './LanguageToggle.astro';
+import MobileMenu from './MobileMenu.astro';
+
+interface Props {
+  lang: 'fr' | 'en';
+  currentPath?: string;
+}
+
+const { lang, currentPath = '' } = Astro.props;
+
+const navLinks = {
+  fr: [
+    { href: '/fr/', label: 'Accueil' },
+    { href: '/fr/a-propos', label: 'À propos' },
+    { href: '/fr/culture', label: 'Culture' },
+    { href: '/fr/carrieres', label: 'Carrières' },
+    { href: '/fr/contact', label: 'Contact' },
+  ],
+  en: [
+    { href: '/en/', label: 'Home' },
+    { href: '/en/about', label: 'About' },
+    { href: '/en/culture', label: 'Culture' },
+    { href: '/en/careers', label: 'Careers' },
+    { href: '/en/contact', label: 'Contact' },
+  ],
+};
+
+const links = navLinks[lang];
+---
+
+<nav class="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-elevated">
+  <div class="container mx-auto px-4">
+    <div class="flex items-center justify-between h-16 md:h-20">
+      <!-- Logo -->
+      <a 
+        href={`/${lang}/`} 
+        class="flex items-center gap-2 hover:opacity-80 transition-opacity"
+      >
+        <img 
+          src="/images/logo.png" 
+          alt="Ozio Group" 
+          class="h-8 md:h-10 w-auto"
+        />
+      </a>
+
+      <!-- Desktop Navigation -->
+      <div class="hidden md:flex items-center gap-8">
+        {links.map((link) => {
+          const isActive = currentPath === link.href || 
+            (link.href !== `/${lang}/` && currentPath.startsWith(link.href));
+          return (
+            <a
+              href={link.href}
+              class:list={[
+                'text-sm font-medium transition-colors',
+                isActive 
+                  ? 'text-accent' 
+                  : 'text-text-secondary hover:text-white'
+              ]}
+            >
+              {link.label}
+            </a>
+          );
+        })}
+      </div>
+
+      <!-- Right side: Language Toggle + Mobile Menu -->
+      <div class="flex items-center gap-4">
+        <LanguageToggle lang={lang} currentPath={currentPath} />
+        <MobileMenu lang={lang} links={links} currentPath={currentPath} />
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Spacer to prevent content from being hidden behind fixed nav -->
+<div class="h-16 md:h-20"></div>

@@ -1,0 +1,60 @@
+---
+interface Props {
+  lang: 'fr' | 'en';
+  currentPath?: string;
+}
+
+const { lang, currentPath = '' } = Astro.props;
+
+// Map current path to equivalent in other language
+const pathMappings: Record<string, string> = {
+  '/fr/': '/en/',
+  '/en/': '/fr/',
+  '/fr/a-propos': '/en/about',
+  '/en/about': '/fr/a-propos',
+  '/fr/culture': '/en/culture',
+  '/en/culture': '/fr/culture',
+  '/fr/carrieres': '/en/careers',
+  '/en/careers': '/fr/carrieres',
+  '/fr/contact': '/en/contact',
+  '/en/contact': '/fr/contact',
+  '/fr/merci': '/en/thank-you',
+  '/en/thank-you': '/fr/merci',
+};
+
+const otherLang = lang === 'fr' ? 'en' : 'fr';
+const otherPath = pathMappings[currentPath] || `/${otherLang}/`;
+---
+
+<a
+  href={otherPath}
+  class="flex items-center gap-1 px-3 py-2 text-sm font-medium text-text-secondary hover:text-white border border-elevated rounded-lg hover:border-accent transition-all"
+  data-lang-toggle
+  data-target-lang={otherLang}
+>
+  <span class:list={[lang === 'fr' ? 'text-white' : 'text-text-muted']}>FR</span>
+  <span class="text-text-muted">/</span>
+  <span class:list={[lang === 'en' ? 'text-white' : 'text-text-muted']}>EN</span>
+</a>
+
+<script>
+  // Save language preference to localStorage on click
+  document.querySelectorAll('[data-lang-toggle]').forEach((toggle) => {
+    toggle.addEventListener('click', () => {
+      const targetLang = toggle.getAttribute('data-target-lang');
+      if (targetLang) {
+        localStorage.setItem('ozio-lang', targetLang);
+      }
+    });
+  });
+
+  // Check for saved language preference on page load (only on root)
+  if (window.location.pathname === '/') {
+    const savedLang = localStorage.getItem('ozio-lang');
+    if (savedLang === 'en') {
+      window.location.href = '/en/';
+    } else {
+      window.location.href = '/fr/';
+    }
+  }
+</script>

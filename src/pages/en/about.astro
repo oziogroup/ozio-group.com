@@ -1,0 +1,50 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Departments from '@components/sections/Departments.astro';
+import SoulStories from '@components/sections/SoulStories.astro';
+import en from '@content/en.json';
+
+const { about, departments, soul } = en;
+---
+
+<BaseLayout 
+  title="About | Ozio Group" 
+  description="Discover Ozio Group, the European home services marketplace. Our story, our mission, our teams."
+  lang="en"
+  canonicalUrl="https://ozio-group.com/en/about"
+>
+  <section class="py-20 md:py-32">
+    <div class="container mx-auto px-6">
+      <div class="max-w-4xl mx-auto text-center" data-animate="fade-up">
+        <h1 class="text-4xl md:text-6xl font-heading font-bold mb-6">
+          {about.headline}
+        </h1>
+        <p class="text-xl md:text-2xl text-text-secondary leading-relaxed">
+          {about.intro}
+        </p>
+      </div>
+    </div>
+  </section>
+  
+  <Departments 
+    headline={departments.headline}
+    intro={departments.intro}
+    departments={departments.items}
+    careersHref="/en/careers"
+    lookingForLabel={departments.lookingForLabel}
+    peopleLabel={departments.peopleLabel}
+  />
+  
+  <SoulStories 
+    headline={soul.headline}
+    intro={soul.intro}
+    stories={soul.stories}
+  />
+</BaseLayout>
+
+<script>
+  import { initScrollReveal } from '@lib/animations';
+  
+  document.addEventListener('astro:page-load', initScrollReveal);
+  initScrollReveal();
+</script>

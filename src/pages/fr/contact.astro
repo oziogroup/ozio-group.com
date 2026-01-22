@@ -1,0 +1,30 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import ContactForm from '@components/sections/ContactForm.astro';
+import fr from '@content/fr.json';
+
+const { contact } = fr;
+---
+
+<BaseLayout 
+  title="Contact | Ozio Group" 
+  description="Contactez Ozio Group. Envoyez-nous votre candidature spontanée ou posez vos questions."
+  lang="fr"
+  canonicalUrl="https://ozio-group.com/fr/contact"
+>
+  <ContactForm 
+    headline={contact.headline}
+    intro={contact.intro}
+    form={contact.form}
+    validation={contact.validation}
+    thankYouUrl="/fr/merci"
+    lang="fr"
+  />
+</BaseLayout>
+
+<script>
+  import { initScrollReveal } from '@lib/animations';
+  
+  document.addEventListener('astro:page-load', initScrollReveal);
+  initScrollReveal();
+</script>

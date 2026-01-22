@@ -1,4 +1,6 @@
 ---
-// Redirect to French homepage by default
-return Astro.redirect('/fr/');
+// Detect browser language and redirect accordingly
+const acceptLang = Astro.request.headers.get('accept-language') || '';
+const prefersFrench = acceptLang.toLowerCase().startsWith('fr');
+return Astro.redirect(prefersFrench ? '/fr/' : '/en/');
 ---

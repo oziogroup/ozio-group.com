@@ -1,6 +1,66 @@
 ---
-// Detect browser language and redirect accordingly
-const acceptLang = Astro.request.headers.get('accept-language') || '';
-const prefersFrench = acceptLang.toLowerCase().startsWith('fr');
-return Astro.redirect(prefersFrench ? '/fr/' : '/en/');
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Hero from '@components/sections/Hero.astro';
+import StatCounter from '@components/sections/StatCounter.astro';
+import MarketplaceExplainer from '@components/sections/MarketplaceExplainer.astro';
+import SoulPreview from '@components/sections/SoulPreview.astro';
+import CultureTeaser from '@components/sections/CultureTeaser.astro';
+import JoinUsCTA from '@components/sections/JoinUsCTA.astro';
+import fr from '@content/fr.json';
+
+const { meta, hero, stats, marketplace, soul, culture, careers } = fr;
 ---
+
+<BaseLayout 
+  title={meta.title} 
+  description={meta.description} 
+  lang="fr"
+  canonicalUrl="https://ozio-group.com/"
+>
+  <Hero 
+    headline={hero.headline}
+    subheadline={hero.subheadline}
+    ctaText={hero.cta}
+    ctaHref="/carrieres"
+  />
+  
+  <StatCounter stats={stats} />
+  
+  <MarketplaceExplainer
+    headline={marketplace.headline}
+    description={marketplace.description}
+    highlight={marketplace.highlight}
+    ctaText={marketplace.cta}
+    ctaHref="/a-propos"
+  />
+
+  <SoulPreview
+    headline={soul.headline}
+    intro={soul.intro}
+    stories={soul.stories}
+    ctaText={soul.ctaText}
+    ctaHref="/culture"
+  />
+
+  <CultureTeaser
+    headline={culture.values.headline}
+    intro={culture.intro}
+    values={culture.values.items}
+    ctaText={culture.ctaText}
+    ctaHref="/culture"
+  />
+
+  <JoinUsCTA
+    headline={careers.headline}
+    description={careers.intro}
+    ctaText={careers.ctaText}
+    ctaHref="/carrieres"
+  />
+</BaseLayout>
+
+<script>
+  import { initAllAnimations } from '@lib/animations';
+  
+  document.addEventListener('astro:page-load', initAllAnimations);
+  initAllAnimations();
+</script>

@@ -8,22 +8,22 @@ const { lang, currentPath = '' } = Astro.props;
 
 // Map current path to equivalent in other language
 const pathMappings: Record<string, string> = {
-  '/fr/': '/en/',
-  '/en/': '/fr/',
-  '/fr/a-propos': '/en/about',
-  '/en/about': '/fr/a-propos',
-  '/fr/culture': '/en/culture',
-  '/en/culture': '/fr/culture',
-  '/fr/carrieres': '/en/careers',
-  '/en/careers': '/fr/carrieres',
-  '/fr/contact': '/en/contact',
-  '/en/contact': '/fr/contact',
-  '/fr/merci': '/en/thank-you',
-  '/en/thank-you': '/fr/merci',
+  '/': '/en/',
+  '/en/': '/',
+  '/a-propos': '/en/about',
+  '/en/about': '/a-propos',
+  '/culture': '/en/culture',
+  '/en/culture': '/culture',
+  '/carrieres': '/en/careers',
+  '/en/careers': '/carrieres',
+  '/contact': '/en/contact',
+  '/en/contact': '/contact',
+  '/merci': '/en/thank-you',
+  '/en/thank-you': '/merci',
 };
 
 const otherLang = lang === 'fr' ? 'en' : 'fr';
-const otherPath = pathMappings[currentPath] || `/${otherLang}/`;
+const otherPath = pathMappings[currentPath] || (otherLang === 'en' ? '/en/' : '/');
 ---
 
 <a
@@ -49,12 +49,11 @@ const otherPath = pathMappings[currentPath] || `/${otherLang}/`;
   });
 
   // Check for saved language preference on page load (only on root)
+  // Redirect to English if user preference is English and on French root
   if (window.location.pathname === '/') {
     const savedLang = localStorage.getItem('ozio-lang');
     if (savedLang === 'en') {
       window.location.href = '/en/';
-    } else {
-      window.location.href = '/fr/';
     }
   }
 </script>

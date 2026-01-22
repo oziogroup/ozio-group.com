@@ -11,11 +11,11 @@ const { lang, currentPath = '' } = Astro.props;
 
 const navLinks = {
   fr: [
-    { href: '/fr/', label: 'Accueil' },
-    { href: '/fr/a-propos', label: 'À propos' },
-    { href: '/fr/culture', label: 'Culture' },
-    { href: '/fr/carrieres', label: 'Carrières' },
-    { href: '/fr/contact', label: 'Contact' },
+    { href: '/', label: 'Accueil' },
+    { href: '/a-propos', label: 'À propos' },
+    { href: '/culture', label: 'Culture' },
+    { href: '/carrieres', label: 'Carrières' },
+    { href: '/contact', label: 'Contact' },
   ],
   en: [
     { href: '/en/', label: 'Home' },
@@ -34,7 +34,7 @@ const links = navLinks[lang];
     <div class="flex items-center justify-between h-16 md:h-20">
       <!-- Logo -->
       <a 
-        href={`/${lang}/`} 
+        href={lang === 'fr' ? '/' : '/en/'} 
         class="flex items-center gap-2 hover:opacity-80 transition-opacity"
       >
         <img 
